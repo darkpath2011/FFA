@@ -1,0 +1,21 @@
+fist:
+  name: Fist
+  world: fist
+  spawn-pos:
+    x: 0
+    y: 0
+    z: 0
+    world: null
+  # 物品格式 物品ID:数量:附魔ID(0（没有附魔）):物品名字:物品简介
+  items:
+    - "276:1:0:钻石剑:§c使用这把剑创造属于的你传奇把！"
+  armor:
+    - "310:1:0"
+    - "311:1:0"
+    - "312:1:0"
+    - "313:1:0"
+  nol: false # 启动此选项将开启游戏内不掉血模式（适合无伤的FFA模式等情况）
+  joinTitle: "" # 加入时显示的标题信息
+  joinTip: "" # 加入时显示的提示信息
+  joinMsg: "" # 加入时发出的消息信息
+  kill-money: 2

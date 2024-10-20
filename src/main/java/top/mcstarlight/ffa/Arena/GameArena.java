@@ -13,9 +13,12 @@ import top.mcstarlight.ffa.Main;
 
 import java.util.*;
 
+/*
+ * 本类参考于 https://github.com/Cookie-Studio/AweadyFFA 本项目仓库的FFAArea.java类的实例化形式来做游戏竞技场管理
+ */
 @Getter
 @Setter
-public class FFA {
+public class GameArena {
     private Set<String> players;
     private String name;
     private List<String> items;
@@ -28,7 +31,7 @@ public class FFA {
     private String deathmsg;
     private int kill_money;
 
-    public FFA(String type) {
+    public GameArena(String type) {
         Config config = Main.getArenaConfig();
         this.players = new HashSet<>();
         this.name = config.getString(type+".name");
@@ -65,6 +68,11 @@ public class FFA {
         }
 
         player.getInventory().clearAll();
+        player.removeAllEffects();
+        giveItem(player);
+    }
+
+    public void giveItem(Player player) {
         player.getInventory().setArmorContents(new Item[4]);
         for (String itemString : items) {
             String[] parts = itemString.split(":");

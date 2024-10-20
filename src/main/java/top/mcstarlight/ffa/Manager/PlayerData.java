@@ -1,25 +1,28 @@
 package top.mcstarlight.ffa.Manager;
 
-import cn.nukkit.Player;
+import top.mcstarlight.ffa.Main;
 
-public class PlayerManager {
-    public int getKills(Player p) {
-        return data.getInt("kills." + p.getName(), 0);
+/**
+ * 此类部分代码来自于PM1所制作的KDR插件
+ * 项目地址：https://github.com/PetteriM1/KDR
+ */
+public class PlayerData {
+    public static int getKills(String p) {
+        return Main.getPlayerDataConfig().getInt("kills." + p, 0);
     }
 
-    public int getDeaths(Player p) {
-        return data.getInt("deaths." + p.getName(), 0);
+    public static int getDeaths(String p) {
+        return Main.getPlayerDataConfig().getInt("deaths." + p, 0);
     }
 
-    public void addKill(Player p) {
-        data.set("kills." + p.getName(), getKills(p) + 1);
+    public static void addKill(String p) {
+        Main.getPlayerDataConfig().set("kills." + p, getKills(p) + 1);
+        Main.getPlayerDataConfig().save();
     }
 
-    public void addDeath(Player p) {
-        data.set("deaths." + p.getName(), getDeaths(p) + 1);
+    public static void addDeath(String p) {
+        Main.getPlayerDataConfig().set("deaths." + p, getDeaths(p) + 1);
+        Main.getPlayerDataConfig().save();
     }
 
-    public double getKDR(Player p) {
-        return (double) getKills(p) / getDeaths(p);
-    }
 }

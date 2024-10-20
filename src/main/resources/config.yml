@@ -1,0 +1,46 @@
+# 自行配置MYSQL相关功能如果本地存储模式将enable模式改为false
+# 暂未开发！！！！！！！！！！！！！！！
+mysql:
+  enable: false
+  host: 127.0.0.1
+  port: 3306
+  database: sb
+  username: sb
+  password: sb
+
+# KDR机制或者ELO机制自行启用
+kdr: false # 计算方式来源于PM1制作的KDR插件(https://github.com/PetteriM1/KDR)
+# 如果您的服务器是专业的 PVP 服务器，那么不建议启动 ELO 机制。这是因为大多数 PVP 玩家可能更习惯于 KDR 机制，而且大部分 BE PVP 服务器都在使用 KDR 机制。
+elo:
+  enable: true
+  k: 30
+  default-score: 1500
+# WARN: 实验性机制不喜勿喷
+# 初始分数
+#  为所有玩家设定一个统一的起始分数也就是default-score。
+# 胜率计算
+#  每场PVP结束后，计算玩家的期望胜率。期望胜率基于玩家和对手的当前评分，反映了玩家在PVP中的相对优势。
+# 分数变动公式
+#  使用 ELO 系统的标准公式调整玩家的分数。计算方式为：
+# 实际结果：PVP结果（胜利为 1，失败为 0）。
+# 期望结果：基于当前评分计算的期望胜率。
+#  K 值：控制评分变动幅度的常数。公式为：新分数 = 旧分数 + K × (实际结果 - 期望结果)。
+# 结果影响
+#  胜利者从对手处获得评分增量，失败者相应减少分数。通过 K 值来调节分数的波动范围，从而反映PVP结果对评分的影响。
+
+# 若开启玩家死亡后的出生点设置，则玩家死亡后会在其所在模式的出生点复活；若关闭此设置，玩家死亡后将自动回到默认世界出生点。
+death_spawn: false
+
+# 末影珍珠使用CD
+ender_pearl:
+  cooldown_message: "§c末影珍珠正在冷却中"
+  ready_message: "§a末影珍珠CD结束"
+  # 单位：秒
+  cooldown_duration: 8
+
+lang:
+  death_message: "{attack}击杀了{player}打的满地找SQ。hhh"
+  select_mode_form:
+    title: "FFA MODE"
+    content: "选择一个FFA模式来游玩把！"
+    buttonText: "{mode}\nPlayers: {players}"

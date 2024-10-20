@@ -1,0 +1,7 @@
+name: FFA
+main: top.mcstarlight.ffa.Main
+version: 1.0.0
+api: [ "1.0.0" ]
+author: MCStarLight Union
+description: This a FFA Plugin.
+website: https://qm.qq.com/q/3Fl61URrh6
